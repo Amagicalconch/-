@@ -41,7 +41,7 @@ class Attention(nn.Module):
         attention_output = torch.matmul(attention_weights, value)
         return attention_output
 
-class ComplexNN(nn.Module):
+class MLP(nn.Module):
     def __init__(self):
         super(ComplexNN, self).__init__()
         self.fc1 = nn.Linear(20, 512)
@@ -70,7 +70,7 @@ class ComplexNN(nn.Module):
         return x
 
 # 创建模型
-model = ComplexNN()
+model = MLP()
 
 import torch.optim as optim
 
