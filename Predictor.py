@@ -5,14 +5,14 @@ import pandas as pd
 import tkinter.font as tkFont
 import os
 from Bio import SeqIO
-from MLP_save import ComplexNN
+from MLP_save import MLP
 
 import warnings
 warnings.simplefilter(action='ignore', category=FutureWarning)
 
 #模型加载
 def load_model(model_path):
-    model = ComplexNN()
+    model = MLP()
     model.load_state_dict(torch.load('model'))
     model.eval()
     return model
@@ -120,7 +120,7 @@ class App:
         os.remove("testmany.csv")
         self.left_text.delete('1.0', tk.END)
         self.right_text.delete('1.0', tk.END)
-        messagebox.showinfo("完成", "重置完毕")
+        messagebox.showinfo("完成", "清除完毕")
 
 # 创建和启动gui
 root = tk.Tk()
